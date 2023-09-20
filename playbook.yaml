@@ -1,0 +1,6 @@
+---
+- name: Play for win
+  hosts: win
+  roles:
+    - win
+  vars_files: ./group_vars/win.yml

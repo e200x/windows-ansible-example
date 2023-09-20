@@ -1,0 +1,5 @@
+terraform/**/*.hcl
+terraform/**/*.tfstate
+terraform/**/*.backup
+terraform/.terraform
+ansible/**/.vault

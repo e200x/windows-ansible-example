@@ -1,0 +1,25 @@
+---
+# tasks file for win
+
+- name: Create directory structure
+  ansible.windows.win_file:
+    path: C:\Temp
+    state: directory
+  
+- name: Touch a file (creates if not present, updates modification time if present)
+  ansible.windows.win_file:
+    path: C:\Temp\foo.txt
+    state: touch
+
+- name: Download 7-Zip to specified path only if modified
+  ansible.windows.win_get_url:
+    url: https://www.7-zip.org/a/7z2301-x64.exe
+    dest: C:\Users\ansible\Downloads\7z2301-x64.exe
+    force: false
+
+- name: Install 7zip
+  ansible.windows.win_package:
+    path: C:\Users\ansible\Downloads\7z2301-x64.exe
+    product_id: 7-Zip
+    arguments: /S
+    state: present
